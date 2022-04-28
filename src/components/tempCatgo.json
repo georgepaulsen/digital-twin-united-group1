@@ -1,0 +1,99 @@
+[
+  {
+    "id": 9,
+    "height": 19,
+    "width": 20,
+    "length": 25,
+    "weight": 14000,
+    "type": 1
+  },
+  {
+    "id": 12,
+    "height": 16,
+    "width": 14,
+    "length": 21,
+    "weight": 1300,
+    "type": 3
+  },
+  {
+    "id": 7,
+    "height": 16,
+    "width": 14,
+    "length": 21,
+    "weight": 1350,
+    "type": 3
+  },
+  {
+    "id": 8,
+    "height": 17,
+    "width": 18,
+    "length": 22,
+    "weight": 1300,
+    "type": 1
+  },
+
+  {
+    "id": 10,
+    "height": 14,
+    "width": 22,
+    "length": 21,
+    "weight": 1350,
+    "type": 3
+  },
+  {
+    "id": 11,
+    "height": 14,
+    "width": 22,
+    "length": 21,
+    "weight": 1350,
+    "type": 2
+  },
+  {
+    "id": 3,
+    "height": 17,
+    "width": 12,
+    "length": 20,
+    "weight": 1200,
+    "type": 1
+  },
+  {
+    "id": 2,
+    "height": 18,
+    "width": 22,
+    "length": 12,
+    "weight": 1000,
+    "type": 3
+  },
+  {
+    "id": 1,
+    "height": 15,
+    "width": 16,
+    "length": 17,
+    "weight": 750,
+    "type": 3
+  },
+  {
+    "id": 4,
+    "height": 22,
+    "width": 15,
+    "length": 13,
+    "weight": 750,
+    "type": 3
+  },
+  {
+    "id": 5,
+    "height": 18,
+    "width": 15,
+    "length": 20,
+    "weight": 650,
+    "type": 3
+  },
+  {
+    "id": 6,
+    "height": 16,
+    "width": 12,
+    "length": 15,
+    "weight": 500,
+    "type": 1
+  }
+]

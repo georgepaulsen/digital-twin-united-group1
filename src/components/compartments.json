@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Compartment One(Front)",
+    "dimen": "52x20x20",
+    "maxCap": "2119",
+    "maxVol": "73",
+    "height": "1.04",
+    "width": "0.4"
+  },
+  {
+    "title": "Compartment Two(Front)",
+    "dimen": "60x20x20",
+    "maxCap": "3223",
+    "maxVol": "111",
+    "height": "1.2",
+    "width": "0.4"
+  },
+  {
+    "title": "Compartment Three(Front)",
+    "dimen": "381x20x20",
+    "maxCap": "16100",
+    "maxVol": "840",
+    "height": "7.62",
+    "width": "0.4"
+  },
+  {
+    "title": "Compartment Four(Back)",
+    "dimen": "297x20x20",
+    "maxCap": "13960",
+    "maxVol": "840",
+    "height": "5.94",
+    "width": "0.4"
+  },
+  {
+    "title": "Compartment Five(Back)",
+    "dimen": "63x20x20",
+    "maxCap": "2689",
+    "maxVol": "109",
+    "height": "1.26",
+    "width": "0.4"
+  },
+  {
+    "title": "Compartment Six(Back)",
+    "dimen": "200x20x20",
+    "maxCap": "8680",
+    "maxVol": "350",
+    "height": "4",
+    "width": "0.4"
+  }
+]
