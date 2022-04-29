@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import Background from './Background';
-import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import { Button, Row, Col } from 'react-bootstrap';
 
 export default function FunctionSection() {

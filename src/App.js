@@ -9,25 +9,20 @@ import Compartment from './components/Compartment';
 import Cargo from './components/Cargo';
 import Notes from './components/Notes';
 import model757 from './images/United757.jpg';
-import Entire757 from './images/757Entire.jpg'; // Tell webpack this JS file uses this image
 
-import Top757 from './images/Top757.png';
-import Com757R3 from './images/757CombinedR3.png';
 import Com757 from './images/757Combined.png';
 import Side757 from './images/Side757.png';
 
 import cargoData from './components/cargo.json';
 import compartmentData from './components/compartments.json';
 import { Button, Row, Col, ProgressBar } from 'react-bootstrap';
-import { CircleProgress } from 'react-gradient-progress';
-import BoxText from './components/BoxText';
 
 export default function App() {
-  const [isSelect, setIsSelect] = useState(true);
-  const [R3, setR3] = useState(false);
   const [algo, setAlgo] = useState('balance');
   const [planeSide, setplaneSide] = useState(true);
   const [selectCom, setSelectCom] = useState(4);
+
+  const [isSelect, setIsSelect] = useState(true);
 
   const [cWeights, setCWeights] = useState([0, 0, 0, 0, 0, 0, 0]);
   const cWeightArray = [0, 0, 0, 0, 0, 0, 0];
@@ -47,7 +42,6 @@ export default function App() {
 
   const [selectCar, setSelectCar] = useState(0);
   const [printMsg, setPrintMsg] = useState('');
-  var printArray = [];
 
   cargoData.sort((a, b) => a.type - b.type || b.weight - a.weight);
   const [cargoes, setCargoes] = useState(
@@ -220,8 +214,7 @@ export default function App() {
       alert('No avliable compartment for cargo id ' + cargoes[0].id);
       return;
     }
-    //console.log('Load Compartment ' + comIndex);
-    setR3(true);
+
     modifyComAdd(comIndex, 0);
   }
 

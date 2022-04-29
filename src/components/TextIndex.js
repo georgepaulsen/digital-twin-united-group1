@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Background from './Background';
 import UALogo from '../images/UALogo.jpg';
 
 export default function TextIndex() {

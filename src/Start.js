@@ -5,7 +5,6 @@ import Input from './Input';
 import TextIndex from './components/TextIndex';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import AppsIcon from '@mui/icons-material/Apps';
 
 export default function Start() {
   const [isStart, setIsStart] = useState(true);
