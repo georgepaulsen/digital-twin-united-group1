@@ -1,34 +1,16 @@
 import './styles.css';
-import Select from 'react-select';
 import Papa from 'papaparse';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
-import AddIcon from '@material-ui/icons/Add';
 import DriveFolderUploadIcon from '@mui/icons-material/DriveFolderUpload';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
-import {
-  Form,
-  Row,
-  Col,
-  // Button,
-  FloatingLabel,
-  Dropdown,
-  DropdownButton
-} from 'react-bootstrap';
-import CsvReader from './components/CsvReader';
-import Popup from 'reactjs-popup';
-import SearchField from 'react-search-field';
 import data from './components/cargo.json';
 import dataNull from './components/cargoNull.json';
 import TableView from 'react-table-view';
-import { CardonContainer } from 'cardon';
-import { StrictMode } from 'react';
-import ReactDOM from 'react-dom';
 import App from './components/addcsv';
 import React, { useState, useEffect } from 'react';
-import { CSVReader } from 'react-papaparse';
 
 import { useFormik } from 'formik';
 
@@ -51,7 +33,7 @@ export default function Input() {
   //
   var DATA = JSON.parse(localStorage.getItem('cargoDatas') || '[]');
   const [dataSet, setDataSet] = useState(DATA);
-  var dataList = [];
+
   let COLUMNS = {
     id: function (data) {
       return <span>Cargo-{data.id}</span>;

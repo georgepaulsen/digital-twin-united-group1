@@ -9,25 +9,20 @@ import Compartment from './components/Compartment';
 import Cargo from './components/Cargo';
 import Notes from './components/Notes';
 import model757 from './images/United757.jpg';
-import Entire757 from './images/757Entire.jpg'; // Tell webpack this JS file uses this image
 
-import Top757 from './images/Top757.png';
-import Com757R3 from './images/757CombinedR3.png';
 import Com757 from './images/757Combined.png';
 import Side757 from './images/Side757.png';
 
 import cargoData from './components/cargo.json';
 import compartmentData from './components/compartments.json';
 import { Button, Row, Col, ProgressBar } from 'react-bootstrap';
-import { CircleProgress } from 'react-gradient-progress';
-import BoxText from './components/BoxText';
 
 export default function App() {
-  const [isSelect, setIsSelect] = useState(true);
-  const [R3, setR3] = useState(false);
   const [algo, setAlgo] = useState('balance');
   const [planeSide, setplaneSide] = useState(true);
   const [selectCom, setSelectCom] = useState(4);
+
+  const [isSelect, setIsSelect] = useState(true);
 
   const [cWeights, setCWeights] = useState([0, 0, 0, 0, 0, 0, 0]);
   const cWeightArray = [0, 0, 0, 0, 0, 0, 0];
@@ -47,7 +42,6 @@ export default function App() {
 
   const [selectCar, setSelectCar] = useState(0);
   const [printMsg, setPrintMsg] = useState('');
-  var printArray = [];
 
   cargoData.sort((a, b) => a.type - b.type || b.weight - a.weight);
   const [cargoes, setCargoes] = useState(
@@ -109,7 +103,14 @@ export default function App() {
               </Button>
             </Row>
             <Row className="mx-0">
-              <Button variant="primary">Remove</Button>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  resetsCargo();
+                }}
+              >
+                Reset Plan
+              </Button>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -132,6 +133,25 @@ export default function App() {
       );
     }
   }
+  function resetsCargo() {
+    setplaneSide(true);
+
+    setCWeights([0, 0, 0, 0, 0, 0, 0]);
+
+    setHazInside([false, false, false, false, false, false]);
+
+    setCVols([0, 0, 0, 0, 0, 0, 0]);
+
+    setSelectCar(0);
+    setPrintMsg('');
+
+    setCargoes(
+      JSON.parse(localStorage.getItem('cargoDatas') || '[]').sort(
+        (a, b) => a.type - b.type || b.weight - a.weight
+      )
+    );
+  }
+
   function removeCargo(id) {
     var temp = cargoes.filter((item) => Number(item.id) === id);
     removedCargos.push(temp[0]);
@@ -153,14 +173,12 @@ export default function App() {
       Number(cargoes[0].width) *
       Number(cargoes[0].length);
     vol = (vol / 1720) * 10;
-    console.log(hazInside);
 
     for (var i = 1; i <= 6; i++) {
       if (cargoes[0].type === 2 && hazInside[i - 1] === true) {
-        console.log('HAZ!');
         continue; //If the compartment already has hazInside
       }
-      if (Number(compartments[i - 1].maxVol) - cVols[i] >= vol) {
+      if (Number(compartments[i - 1].maxVol) - cVols[i] >= vol * 0.9) {
         var reminWeight = Number(compartments[i - 1].maxCap) - cWeights[i];
 
         if (
@@ -190,7 +208,7 @@ export default function App() {
       if (cargoes[0].type === 2 && hazInside[i - 1] === true) {
         continue; //If the compartment already has hazInside
       }
-      if (Number(compartments[i - 1].maxVol) - cVols[i] >= vol) {
+      if (Number(compartments[i - 1].maxVol) - cVols[i] >= vol * 0.9) {
         var reminWeight = Number(compartments[i - 1].maxCap) - cWeights[i];
 
         if (reminWeight >= Number(cargoes[0].weight)) {
@@ -220,8 +238,7 @@ export default function App() {
       alert('No avliable compartment for cargo id ' + cargoes[0].id);
       return;
     }
-    //console.log('Load Compartment ' + comIndex);
-    setR3(true);
+
     modifyComAdd(comIndex, 0);
   }
 
@@ -292,6 +309,7 @@ export default function App() {
           >
             <Title>Digital Twin</Title>
             <Description>Choose A Model</Description>
+
             <Description>
               <img src={model757} alt="757model" width="300px" height="130" />
               Boeing 757-200
@@ -307,6 +325,22 @@ export default function App() {
               }}
             >
               <Title>Digital Twin</Title>
+              {algo === 'balance' ? (
+                <>
+                  <Description>Using Balanced Weight Algorithm</Description>
+                </>
+              ) : (
+                <></>
+              )}
+              {algo === 'CoGBack' ? (
+                <>
+                  <Description>
+                    Using Center of Gravity(Back) Algorithm
+                  </Description>
+                </>
+              ) : (
+                <></>
+              )}
               <MDBRow className="List">
                 <Notes />
               </MDBRow>

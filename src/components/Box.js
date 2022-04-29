@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLoader } from '@react-three/fiber';
 
 export default function Box(props) {
   var bHeight = Number(props.height);
